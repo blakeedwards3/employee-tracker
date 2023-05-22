@@ -9,6 +9,12 @@ const connection = mysql.createConnection({
     database: 'company_db'
 });
 
+connection.connect((err) => {
+    if (err) throw err;
+    console.log('Connected to the database');
+    startApp();
+})
+
 function startApp() {
     inquirer.prompt([
         {
@@ -47,9 +53,3 @@ function startApp() {
             }
         })
 }
-
-connection.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to the database');
-    startApp();
-})
