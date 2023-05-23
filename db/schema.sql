@@ -1,13 +1,13 @@
 /* Check for a pre-existing "company_db" database and deleting all of it's content if it does exist */
-DROP DATABASE IF EXISTS company_db;
+DROP DATABASE IF EXISTS employee_db;
 
-/* Create new "company_db" database */
-CREATE DATABASE company_db;
+/* Create new "employee_db" database */
+CREATE DATABASE employee_db;
 
 /* Use this database with the USE statement */
-USE company_db;
+USE employee_db;
 
-/* Create tables for "company_db" */
+/* Create tables for "employee_db" */
 CREATE TABLE department (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30)
