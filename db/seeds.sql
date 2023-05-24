@@ -1,3 +1,4 @@
+/* Current departments */
 INSERT INTO department (name)
 VALUES ('Sales'),
 ('Customer Service'),
@@ -5,6 +6,7 @@ VALUES ('Sales'),
 ('Human Resources'),
 ('Management');
 
+/* Current roles and salaries */
 INSERT INTO role (title, salary, department_id)
 VALUES ('Sales Associate', 50000, 1),
 ('Customer Service Clerk', 30000, 2),
@@ -12,6 +14,7 @@ VALUES ('Sales Associate', 50000, 1),
 ('HR Representative', 55000, 4),
 ('Manager', 80000, 5);
 
+/* Current employee list with names and roles */
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ('John', 'Doe', 1, 1),
 ('Ashley', 'Johnson', 1, 1),

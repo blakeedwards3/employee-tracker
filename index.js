@@ -1,7 +1,9 @@
+// Importing modules
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 
+// Creating MySQL connection
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -15,6 +17,8 @@ connection.connect((err) => {
     startApp();
 });
 
+// Starting the app
+// Creating initial list of choices when app is running
 function startApp() {
     inquirer
     .prompt([
@@ -56,6 +60,7 @@ function startApp() {
         });
 }
 
+// Viewing all the departments from the database
 function viewAllDepartments() {
     connection.query('SELECT * FROM department', (err, departments) => {
         if (err) throw err;
@@ -64,6 +69,7 @@ function viewAllDepartments() {
     });
 }
 
+// Viewing all the roles from the database
 function viewAllRoles() {
     connection.query('SELECT * FROM role', (err, roles) => {
         if (err) throw err;
@@ -72,6 +78,7 @@ function viewAllRoles() {
     });
 }
 
+// Viewing all the employees from the database
 function viewAllEmployees() {
     const query = `
     SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
@@ -87,6 +94,7 @@ function viewAllEmployees() {
     });
 }
 
+// Adding a new department to the database
 function addNewDepartment() {
     inquirer
     .prompt([
@@ -115,6 +123,7 @@ function addNewDepartment() {
     });
 }
 
+// Adding a new role to the database
 function addNewRole() {
     connection.query('SELECT * FROM department', (err, departments) => {
         if (err) throw err;
@@ -167,6 +176,7 @@ function addNewRole() {
     });
 }
 
+// Adding a new employee to the database
 function addNewEmployee() {
     connection.query('SELECT * FROM role', (err, roles) => {
         if (err) throw err;
@@ -238,6 +248,7 @@ function addNewEmployee() {
     });
 }
 
+// Updating the role of a current employee in the database
 function updateEmployeeRole() {
     connection.query('SELECT * FROM employee', (err, employees) => {
         if (err) throw err;
