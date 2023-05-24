@@ -74,7 +74,7 @@ function viewAllRoles() {
 
 function viewAllEmployees() {
     const query = `
-    SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, rol.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
+    SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
     FROM employee
     INNER JOIN role ON employee.role_id = role.id
     INNER JOIN department ON role.department_id = department.id
